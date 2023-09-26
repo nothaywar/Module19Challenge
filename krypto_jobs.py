@@ -80,7 +80,9 @@ w3 = Web3(Web3.HTTPProvider("HTTP://127.0.0.1:7545"))
 # @TODO:
 # From `crypto_wallet.py import the functions generate_account, get_balance,
 #  and send_transaction
-# YOUR CODE HERE
+
+from crypto_wallet import generate_account, get_balance, send_transaction
+
 
 ################################################################################
 # KryptoJobs2Go Candidate Information
@@ -156,7 +158,7 @@ st.sidebar.markdown("## Client Account Address and Ethernet Balance in Ether")
 
 # @TODO:
 #  Call the `generate_account` function and save it as the variable `account`
-# YOUR CODE HERE
+account = generate_account()
 
 ##########################################
 
@@ -172,7 +174,8 @@ st.sidebar.write(account.address)
 # @TODO
 # Call `get_balance` function and pass it your account address
 # Write the returned ether balance to the sidebar
-# YOUR CODE HERE
+eth_balance = get_balance(account.address)
+st.sidebar.write(f"Balance: {eth_balance} ETH")
 
 ##########################################
 
@@ -263,11 +266,12 @@ st.sidebar.markdown("## Total Wage in Ether")
 # Calculate total `wage` for the candidate by multiplying the candidate’s hourly
 # rate from the candidate database (`candidate_database[person][3]`) by the
 # value of the `hours` variable
-# YOUR CODE HERE
+wage = hourly_rate * hours
+
 
 # @TODO
 # Write the `wage` calculation to the Streamlit sidebar
-# YOUR CODE HERE
+st.sidebar.write(f"Total Wage: {wage} ETH")
 
 ##########################################
 # Step 2 - Part 2:
